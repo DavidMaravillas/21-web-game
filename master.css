@@ -1,5 +1,25 @@
 #cards {
-    display: table;
+    display: block;
+    align-content: center
+
+}
+
+#userCards{
+    justify-content: center;
+}
+
+#compCards{
+    justify-content: center
+}
+
+body{
+    text-align: center;
+    font-family: sans-serif;
+    background-image: url(./assets/casino-3319809_1920.jpg);
+    color: white;
+    font-weight: bold;
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: beige
 }
 
 ul{
@@ -10,4 +30,36 @@ ul{
 
 li{
     padding: 0 10px 0 10px;
+}
+
+#results{
+    font-weight: bolder;
+}
+
+#startGame, #hit, #stay, #playAgain {
+    width: 200px;
+    padding: 12px 10px 12px 10px;
+    border-radius: 100px;
+    font-size: large;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+
+}
+
+#startGame:hover, #hit:hover, #stay:hover, #playAgain:hover{
+    background-color: white;
+    color: black;
+    border-color: black
+
+}
+
+#results{
+    font-size: 20px;
+    color: black;
+    background-color:white;
+    width: 30%;
+    margin: auto;
+    border-color: aqua;
+    border-width: 10px
 }

@@ -133,6 +133,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
             results.appendChild(result)
             let playAgain = document.createElement("button")
             playAgain.innerText = "Play again"
+            playAgain.id= "playAgain"
             results.appendChild(playAgain)
             playAgain.addEventListener("click", start)
         })
