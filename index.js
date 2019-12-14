@@ -8,10 +8,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             console.log(err)
         }
     }
-
-    let userCardTotal = 0
-    let compCardTotal = 0
-    let aceValue
     
     
     const drawCards = async (deck,numCard,ul) =>{
@@ -23,7 +19,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
             let li = document.createElement("li")
             let img = document.createElement("img")
             img.src = card.image
-            console.log(card)
             if(card.value === "JACK" ||card.value === "QUEEN"||card.value === "KING"){
                 if(ul.id === "userCards" ){
                     userCardTotal +=10
@@ -49,6 +44,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
     
             li.appendChild(img)
             ul.appendChild(li)
+            total.innerText = `Player Total = ${userCardTotal}`
         })
     }
     
@@ -80,9 +76,7 @@ document.addEventListener("DOMContentLoaded", ()=>{
         let deck = await fetchData(deckUrl)
         let deckId = deck.deck_id
         let total = document.createElement("p")
-        let p = document.createElement("p")
-        p.id = "deck"
-        p.innerText = deckId
+        total.id = "total"
         results.appendChild(total) 
         cards.appendChild(userCards)
         cards.appendChild(compCards)
@@ -91,7 +85,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
         total.innerText = `Player Total = ${userCardTotal}`
         hit.addEventListener("click", async ()=>{
             await drawCards(deckId,"1",userCards)
-            total.innerText = `Player Total = ${userCardTotal}`
             if(userCardTotal > 21){
                 alert("Player has busted")
                 playAgain = window.confirm("Wanna Play again")
@@ -99,7 +92,6 @@ document.addEventListener("DOMContentLoaded", ()=>{
                     start()
                 } else{
                     alert("Goodbye, Better luck next time")
-                    // start()
                 }
             }
         })
@@ -110,10 +102,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
             hit.disabled = true
             stay.disabled = true
             await drawCards(deckId,"3",compCards)
-            total.innerText = `Player Total = ${userCardTotal}`
             compTotal.innerText = `Dealer total: ${compCardTotal}`
             results.appendChild(compTotal)
-            debugger
             let result = document.createElement("h2")
             if(userCardTotal > 21){
                 result.innerText = `Player busted, House wins`
