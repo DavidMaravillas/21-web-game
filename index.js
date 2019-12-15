@@ -121,6 +121,8 @@ document.addEventListener("DOMContentLoaded", ()=>{
                 result.innerText = `Player Wins this round`
             }
             results.appendChild(result)
+            hit.hidden = true
+            stay.hidden = true
             let playAgain = document.createElement("button")
             playAgain.innerText = "Play again"
             playAgain.id= "playAgain"
